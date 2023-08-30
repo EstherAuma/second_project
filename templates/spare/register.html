@@ -1,0 +1,19 @@
+
+{% extends 'spare/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% blockcontent %}
+<h1>Please register from here!</h1>
+    <br>
+    <div class="form-container">
+    
+        <form id="form" method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <br>
+            <input type="submit" name="Submit" class="btn btn-info btn-light btn-block"> <br>
+        </form>
+        
+    </div>
+{% endblock %}
+

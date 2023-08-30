@@ -1,0 +1,35 @@
+{% extends 'spare/base.html' %}
+  {% block content %}
+  <h1>Home</h1>
+  <div class="content">
+    <h3>Products</h3>
+    <table class="table">
+      <thead>
+        <div class="header">
+        <tr>
+          <th class="col">#</th>
+          <th class="col">Name</th>
+          <th class="col">Category</th>
+          <th class="col">Country</th>
+          <th class="col">Quantity</th>
+        </tr>
+      </div>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td>{{ forloop.counter }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.country_of_origin }}</td>
+          <td>{{ product.received_quantity }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% endblock %}
+
+</body>
+
+</html>

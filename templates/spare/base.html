@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Document</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    
+    
+      <ul class="nav justify-content-end" style="background-color: aliceblue;">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+
+        </li>
+        {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_product' %}">Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_country' %}">Country</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_category' %}">Category</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_sale' %}">Sale</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'create_branch' %}">Branch</a>
+        </li>
+        {% endif %}
+      </ul>
+
+
+
+
+
+   {% block content %} 
+   {% endblock %} 
+</body>
+</html>
